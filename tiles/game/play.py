@@ -40,8 +40,8 @@ def get_score(plateau): # Retourne le score du joueur en faisant la sommes des v
 def create_new_play(): # Crée un dictionnaire avec le dictionnaire initial, la prochaine tuile et le score.
     p = init_play()
     put_next_tiles(p, get_next_alea_tiles(p, 'init'))
-    play = { 'plateau' : p ,
-     'next_tile' : None ,
+    play = { 'plateau' : p,
+     'next_tile' : None,
      'score' : get_score(p) }
     get_nb_empty_rooms(play['plateau'])
     return play

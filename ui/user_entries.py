@@ -1,4 +1,5 @@
-import sys, tkinter
+from tkinter import *
+import sys
 from os.path import dirname, abspath
 d = dirname(dirname(abspath(__file__)))
 sys.path.append(d)
@@ -20,30 +21,6 @@ def get_user_move():
         direction = direction.lower()
     return direction
 
-
-def get_user_menu2(partie):
-    print('Taper la lettre:')
-    print(N)
-    print(L)
-    print(S)
-    print(C)
-    print(Q)
-    choix = ''
-    while choix!='N' or choix!='L' or choix!='S' or choix!='C' or choix!='Q':
-        choix = str(input())
-        if choix == 'n' or choix == 'N':
-            return('N')
-        elif choix == 'l' or choix == 'L':
-            return('L')
-        elif choix == 's' or choix == 'S':
-            return('S')
-        elif choix == 'c' or choix == 'C':
-            return('C')
-        elif choix == 'q' or choix == 'Q':
-            return('Q')
-        else:
-            print('Veuiller choisir les lettres proposées.')
-
 def get_user_menu(partie):
     choix = ''
     if partie is None:
@@ -60,3 +37,7 @@ def get_user_menu(partie):
             choix = str(input())
             choix = choix.upper() # Transformer les carctères en minuscule.
     return choix
+
+#def get_user_menuV2(partie):
+    #if partie is None :
+
