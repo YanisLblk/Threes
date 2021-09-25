@@ -3,7 +3,6 @@ import sys
 from os.path import dirname, abspath
 d = dirname(dirname(abspath(__file__)))
 sys.path.append(d)
-from tiles.tiles_moves import play_move
 
 N = "N : Commencer une nouvelle partie"
 L = 'L : Charger une Partie'
@@ -35,9 +34,5 @@ def get_user_menu(partie):
             print(C)
             print(Q)
             choix = str(input())
-            choix = choix.upper() # Transformer les carctères en minuscule.
+            choix = choix.upper() # Transformer les carctères en majuscule.
     return choix
-
-#def get_user_menuV2(partie):
-    #if partie is None :
-

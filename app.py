@@ -48,12 +48,6 @@ def threes():
             return jeu
 
 def threesV2(partie):
-    partie=None
-    menu = get_user_menu(partie)
-    if menu == 'N':
-        partie = create_new_play()
-    elif menu == 'L':
-        partie = restore_game()
     jeu=False
     while jeu!=True:
         jeu=cycle_play(partie)
@@ -98,10 +92,9 @@ label_title.pack()
 frame_title.pack(expand=1)
 
 frame_button = Frame(window)
-new_game_button = Button(frame_button, text="Commencer une nouvelle partie", font=("Courriel", 30), fg="white", bg="black").pack() #command=threesV2(create_new_play())
-load_button = Button(frame_button, text="Charger une Partie", font=("Courriel", 30), fg="white", bg="black").pack() #command=threesV2(restore_game())
+new_game_button = Button(frame_button, text="Commencer une nouvelle partie", font=("Courriel", 30), fg="white", bg="black", command=threesV2(create_new_play())).pack()
+load_button = Button(frame_button, text="Charger une Partie", font=("Courriel", 30), fg="white", bg="black", command=threesV2(restore_game())).pack() #command=threesV2(restore_game())
 exit_button = Button(frame_button, text="Quitter", font=("Courriel", 30), fg="white", bg="black", command=quit).pack()
-frame_button.grid(row=1)
 frame_button.pack(padx=25, fill="x", side="bottom", expand=1)
 
 #afficher
