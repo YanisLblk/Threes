@@ -1,9 +1,7 @@
 # coding:utf-8
 #!usr/bin/env python
 
-from random import randint
-from termcolor import cprint
-from tkinter import *
+from window import *
 from ui.play_display import medium_display
 from tiles.game.play import create_new_play, get_score
 from ui.user_entries import get_user_menu
@@ -51,7 +49,6 @@ def threesV2(partie):
     jeu=False
     while jeu!=True:
         jeu=cycle_play(partie)
-
         if jeu == False: #Si le menu est séléctionner en pleine partie.
             menu = get_user_menu(partie)
             if menu == 'S':
@@ -79,7 +76,12 @@ def threesV2(partie):
             print('Votre score est de ', partie['score'] , 'points.')
             return jeu
 
+window = window()
+window.titre()
+window.accueil()
+"""
 window = Tk()
+
 window.title("Jeu Threes")
 window.geometry("1080x720")
 window.minsize(480, 360)
@@ -92,15 +94,14 @@ label_title.pack()
 frame_title.pack(expand=1)
 
 frame_button = Frame(window)
-new_game_button = Button(frame_button, text="Commencer une nouvelle partie", font=("Courriel", 30), fg="white", bg="black", command=threesV2(create_new_play())).pack()
-load_button = Button(frame_button, text="Charger une Partie", font=("Courriel", 30), fg="white", bg="black", command=threesV2(restore_game())).pack() #command=threesV2(restore_game())
+new_game_button = Button(frame_button, text="Commencer une nouvelle partie", font=("Courriel", 30), fg="white", bg="black").pack() #command=threesV2(create_new_play())
+load_button = Button(frame_button, text="Charger une Partie", font=("Courriel", 30), fg="white", bg="black").pack() #command=threesV2(restore_game())
 exit_button = Button(frame_button, text="Quitter", font=("Courriel", 30), fg="white", bg="black", command=quit).pack()
 frame_button.pack(padx=25, fill="x", side="bottom", expand=1)
 
 #afficher
 window.mainloop()
 
-"""
 cprint("     _   _____   _   _        _____   _   _   _____    _____   _____   _____  ", "white", "on_red")
 cprint("    | | | ____| | | | |      |_   _| | | | | |  _  \  | ____| | ____| /  ___/ ", "white", "on_red")
 cprint("    | | | |__   | | | |        | |   | |_| | | |_| |  | |__   | |__   | |___  ", "white", "on_red")
