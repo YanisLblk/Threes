@@ -1,7 +1,6 @@
 # coding:utf-8
 #!usr/bin/env python
 
-from termcolor import cprint
 from ui.play_display import medium_display
 from tiles.game.play import create_new_play, get_score
 from ui.user_entries import get_user_menu
@@ -46,11 +45,11 @@ def threes():
             return jeu
 
 
-cprint("     _   _____   _   _        _____   _   _   _____    _____   _____   _____  ", "white", "on_red")
-cprint("    | | | ____| | | | |      |_   _| | | | | |  _  \  | ____| | ____| /  ___/ ", "white", "on_red")
-cprint("    | | | |__   | | | |        | |   | |_| | | |_| |  | |__   | |__   | |___  ", "white", "on_red")
-cprint(" _  | | |  __|  | | | |        | |   |  _  | |  _  /  |  __|  |  __|  \___  \ ", "white", "on_red")
-cprint("| |_| | | |___  | |_| |        | |   | | | | | | \ \  | |___  | |___   ___| | ", "white", "on_red")
-cprint("\_____/ |_____| \_____/        |_|   |_| |_| |_|  \_\ |_____| |_____| /_____/ ", "white", "on_red")
+print("     _   _____   _   _        _____   _   _   _____    _____   _____   _____  ")
+print("    | | | ____| | | | |      |_   _| | | | | |  _  \  | ____| | ____| /  ___/ ")
+print("    | | | |__   | | | |        | |   | |_| | | |_| |  | |__   | |__   | |___  ")
+print(" _  | | |  __|  | | | |        | |   |  _  | |  _  /  |  __|  |  __|  \___  \ ")
+print("| |_| | | |___  | |_| |        | |   | | | | | | \ \  | |___  | |___   ___| | ")
+print("\_____/ |_____| \_____/        |_|   |_| |_| |_|  \_\ |_____| |_____| /_____/ ")
 
 print(threes())

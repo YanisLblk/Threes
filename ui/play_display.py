@@ -1,7 +1,5 @@
 # Fonction de la partie 1
 
-from termcolor import cprint
-
 def simple_display(plateau):#affichage simple du plateau sans limitation des zones.
     n = plateau['n'] #je rentre la taille du tableau dans une variable.
     tab = plateau['tiles']
@@ -27,25 +25,25 @@ def medium_display(plateau):# Un affichage avec des delimitations entre les vale
     i = 0
     while i<n:
         # Encadrer le tableau aves des asterix.
-        cprint(37*'*', "yellow", "on_magenta")
+        print(37*'*')
         ligne = 4*("|"+8*" ")+"|"
-        cprint(ligne, "yellow", "on_magenta")
+        print(ligne)
         j = 0
         while j<n:
             point = str(tab[valeur])
             res = point.center(8)
             if j<n-1:
                 res = "|"+point.center(8)
-                cprint(res, "yellow", "on_magenta",end='')
+                print(res, end='')
             else:
                 # Séparation des valeurs avec |
                 case = '|'+res+'|'
-                cprint(case, "yellow", "on_magenta")
+                print(case)
             valeur += 1
             j += 1
-        cprint(ligne, "yellow", "on_magenta")
+        print(ligne)
         i += 1
-    cprint(37*'*', "yellow", "on_magenta")
+    print(37*'*')
 
 def medium_alt_display(plateau):
     n = plateau['n']
@@ -73,7 +71,7 @@ def medium_alt_display(plateau):
                 elif tab[valeur]>9:
                     print('| ',tab[valeur], end='  ')
                 else:
-                    cprint('|  ',tab[valeur], end='  ')
+                    print('|  ',tab[valeur], end='  ')
             valeur += 1
             j += 1
         i += 1
