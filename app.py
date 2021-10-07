@@ -2,7 +2,7 @@
 #!usr/bin/env python
 
 from ui.play_display import medium_display
-from tiles.game.play import create_new_play, get_score
+from game.play import create_new_play, get_score
 from ui.user_entries import get_user_menu
 from life_cycle.play import cycle_play, save_game, restore_game
 

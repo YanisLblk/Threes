@@ -45,6 +45,7 @@ def medium_display(plateau):# Un affichage avec des delimitations entre les vale
         i += 1
     print(37*'*')
 
+"""
 def medium_alt_display(plateau):
     n = plateau['n']
     tab = plateau['tiles']
@@ -76,3 +77,4 @@ def medium_alt_display(plateau):
             j += 1
         i += 1
     print(29*'*')
+"""

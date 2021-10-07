@@ -5,7 +5,7 @@ from os.path import dirname, abspath
 d = dirname(dirname(abspath(__file__)))
 sys.path.append(d)
 
-from tiles.game.play import get_score
+from game.play import get_score
 from tiles.tiles_moves import get_next_alea_tiles, play_move, is_room_empty, set_value, put_next_tiles, get_nb_empty_rooms
 from ui.user_entries import get_user_move
 from ui.play_display import medium_display
