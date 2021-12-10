@@ -1,7 +1,7 @@
+from Game.Play import createNewPlay, getScore
 from ui.PlayDisplay import display
-from game.Play import createNewPlay, getScore
 from ui.UserEntries import getUserMenu
-from life_cycle.Play import playCycle, saveGame, restoreGame
+from LifeCycle.Play import playCycle, saveGame, restoreGame
 
 def threes():
     partie=None

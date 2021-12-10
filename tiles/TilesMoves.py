@@ -1,5 +1,5 @@
 from random import randint
-from tiles.TilesAcces import setValue, isRoomEmpty
+from Tiles.TilesAcces import setValue, isRoomEmpty
 
 def getNumberEmptyRooms(board): # Update the dictionary with the free number of boxes
     emptyTile = 0

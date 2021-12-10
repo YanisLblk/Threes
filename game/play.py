@@ -1,6 +1,6 @@
 import sys
 from os.path import dirname, abspath
-from tiles.TilesMoves import getNextAleaTiles, putNextTiles, getNumberEmptyRooms
+from Tiles.TilesMoves import getNextAleaTiles, putNextTiles, getNumberEmptyRooms
 
 d = dirname(dirname(abspath(__file__)))
 sys.path.append(d)
