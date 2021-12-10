@@ -1,59 +1,54 @@
-import json
-import sys
+import json, sys
 
 from os.path import dirname, abspath
+from game.Play import getScore
+from tiles.TilesMoves import getNextAleaTiles, playMove, isRoomEmpty, setValue, putNextTiles, getNumberEmptyRooms
+from ui.UserEntries import getUserMove
+from ui.PlayDisplay import display
+
 d = dirname(dirname(abspath(__file__)))
+print(d)
 sys.path.append(d)
+dataPath = d+"\game\GameSaved.json"
 
-from game.play import get_score
-from tiles.tiles_moves import get_next_alea_tiles, play_move, is_room_empty, set_value, put_next_tiles, get_nb_empty_rooms
-from ui.user_entries import get_user_move
-from ui.play_display import medium_display
-
-datapath = d+"\\tiles\game\game_saved.json"
-# Fonction de la partie 3
-
-#encours = create_new_play()
-
-def cycle_play(partie): # Fonction qui permet de maintenir la partie en cours.
-    plateau = partie['plateau']
+def playCycle(dataGame): # Function that keep the game in progress
+    board = dataGame['board']
     play = True
     while play != False:
-        medium_display(plateau)
-        tile = partie['next_tile']
+        display(board)
+        tile = dataGame['nextTile']
         if tile is None:
-            tile=get_next_alea_tiles(plateau, 'encours')
+            tile = getNextAleaTiles(board, 'inGame')
 
-        if tile['check']==False:
-            partie['score']=get_score(plateau)
-            print('score final:',partie['score'])
+        if tile['check'] == False:
+            dataGame['score'] = getScore(board)
+            print('score final : ', dataGame['score'])
             return True
 
-        val = tile['0']
-        print('La prochaine tuile :', val['val'])
-        direction = get_user_move()
-        if direction=='m':
+        valueTile=tile['0']
+        print('La prochaine tuile :', valueTile['value'])
+        direction = getUserMove()
+        if direction == 'm':
             return False
 
-        play_move(plateau, direction)
+        playMove(board, direction)
 
-        if is_room_empty(plateau, val['lig'], val['col']) == False:
-            tile2 = get_next_alea_tiles(plateau, 'encours')
-            val2 = tile2['0']
-            set_value(plateau,val2['lig'],val2['col'],val['val'])
+        if isRoomEmpty(board, valueTile['row'], valueTile['column']) == False:
+            tile2 = getNextAleaTiles(board, 'inGame')
+            valueTile2 = tile2['0']
+            setValue(board, valueTile2['row'],
+                     valueTile2['column'], valueTile['value'])
         else:
-            put_next_tiles(plateau,tile)
-        if get_nb_empty_rooms(plateau) < 1:
+            putNextTiles(board, tile)
+        if getNumberEmptyRooms(board)<1:
             return('Game Over !')
-        partie['next_tile']=get_next_alea_tiles(plateau,'encours')
+        dataGame['nextTile'] = getNextAleaTiles(board, 'inGame')
         play = False
 
-def save_game(partie):
-    datas = partie
-    with open(datapath, "w") as file:
-        json.dump(datas, file)
+def saveGame(dataGame): # Save the data of the game in game_saved.json
+    with open(dataPath, "w") as file:
+        json.dump(dataGame, file)
 
-def restore_game():
-    with open(datapath, "r") as file:
-        game_save = json.load(file)
-        return game_save
+def restoreGame(): # Load the data from the previous game
+    with open(dataPath, "r") as file:
+        return json.load(file)

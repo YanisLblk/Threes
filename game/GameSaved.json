@@ -1,0 +1,1 @@
+{"board": {"n": 4, "numberFreeTiles": 10, "tiles": [0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 0, 6, 2, 1, 3]}, "nextTile": {"stateGame": "inGame", "0": {"value": 3, "row": 0, "column": 0}, "check": true}, "score": 3}

@@ -1,33 +1,30 @@
-# coding:utf-8
-#!usr/bin/env python
-
-from ui.play_display import medium_display
-from game.play import create_new_play, get_score
-from ui.user_entries import get_user_menu
-from life_cycle.play import cycle_play, save_game, restore_game
+from ui.PlayDisplay import display
+from game.Play import createNewPlay, getScore
+from ui.UserEntries import getUserMenu
+from life_cycle.Play import playCycle, saveGame, restoreGame
 
 def threes():
     partie=None
-    menu = get_user_menu(partie)
+    menu = getUserMenu(partie)
     if menu == 'N':
-        partie = create_new_play()
+        partie = createNewPlay()
     elif menu == 'L':
-        partie = restore_game()
+        partie = restoreGame()
     jeu=False
     while jeu!=True:
-        jeu=cycle_play(partie)
+        jeu = playCycle(partie)
 
         if jeu == False: #Si le menu est séléctionner en pleine partie.
-            menu = get_user_menu(partie)
+            menu = getUserMenu(partie)
             if menu == 'S':
-                save_game(partie)
+                saveGame(partie)
                 return('Partie sauvegarder')
             elif menu == 'Q':
-                save_game(create_new_play())
+                saveGame(createNewPlay())
                 return('fin du jeu')
 
         elif jeu == True:
-            save_game(create_new_play())
+            saveGame(createNewPlay())
             replay=''
             while replay != 'r' and replay != 'p':
                 print('rejouer r/p')
@@ -35,12 +32,12 @@ def threes():
                 replay = replay.lower()
             if replay=='r':
                 jeu = False
-                partie = create_new_play()
+                partie = createNewPlay()
             else:
                 return('fin du jeu')
         elif jeu == 'Game Over !':
-            medium_display(partie['plateau'])
-            partie['score'] = get_score(partie['plateau'])
+            display(partie['board'])
+            partie['score'] = getScore(partie['board'])
             print('Votre score est de ', partie['score'] , 'points.')
             return jeu
 
@@ -51,5 +48,4 @@ print("    | | | |__   | | | |        | |   | |_| | | |_| |  | |__   | |__   | |
 print(" _  | | |  __|  | | | |        | |   |  _  | |  _  /  |  __|  |  __|  \___  \ ")
 print("| |_| | | |___  | |_| |        | |   | | | | | | \ \  | |___  | |___   ___| | ")
 print("\_____/ |_____| \_____/        |_|   |_| |_| |_|  \_\ |_____| |_____| /_____/ ")
-
 print(threes())
