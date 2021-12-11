@@ -31,9 +31,7 @@ def getScore(board): # Return the player's score by summing the board values
 
 def createNewPlay(): # Creates a dictionary with the initial dictionary, the next tile and the score
     initialBoard = initPlay()
-    test = getNextAleaTiles(initialBoard, 'init')
-    print(test)
-    putNextTiles(initialBoard, test)
+    putNextTiles(initialBoard, getNextAleaTiles(initialBoard, 'init'))
     play = { 'board' : initialBoard,
      'nextTile' : None,
      'score' : getScore(initialBoard) }
