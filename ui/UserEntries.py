@@ -13,7 +13,7 @@ Q = 'Q : Terminer le jeu'
 def getUserMove():
     direction = ''
     while direction != "h" and direction != "b" and direction != "g" and direction != "d" and direction != "m":
-        print("Les direction du plateau : haut(h), bas(b), gauche(g), droite(d)")
+        print("Les directions du plateau : haut(h), bas(b), gauche(g), droite(d)")
         print('pour ouvrir le menu:(m)')
         direction = str(input())
         direction = direction.lower()
