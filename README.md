@@ -8,4 +8,4 @@ This project is the development of the threes game in the command line.
 
 ## Picture
 
-![ScreenThrees](https://user-images.githubusercontent.com/61754783/145670573-fca34c22-d4fc-4949-a5b7-86a0f73fd055.png)
+![ScreenThrees](https://user-images.githubusercontent.com/61754783/152382656-a4371bc1-d847-47a3-9e0e-81c6347d7af6.png)
