@@ -1,7 +1,6 @@
 # Threes
 
 ![Language](https://img.shields.io/badge/Language-Python-blue)
-![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 
 This project is the development of the threes game in the command line.
 
